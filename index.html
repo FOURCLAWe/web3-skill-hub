@@ -17,19 +17,19 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: #000000;
-            color: #FFFFFF;
+            background: #0A0A0A;
+            color: #E5E5E5;
             overflow-x: hidden;
         }
         
         .gradient-bg {
-            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 50%);
         }
         
         .bento-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 24px;
             padding: 2rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -37,14 +37,14 @@
         }
         
         .bento-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(139, 92, 246, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(139, 92, 246, 0.2);
             transform: translateY(-2px);
         }
         
         .skill-card-modern {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 20px;
             padding: 1.5rem;
             transition: all 0.3s ease;
@@ -70,8 +70,8 @@
         }
         
         .skill-card-modern:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-            border-color: rgba(139, 92, 246, 0.4);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-color: rgba(139, 92, 246, 0.3);
             transform: translateY(-4px);
         }
         
@@ -133,9 +133,9 @@
             </div>
             
             <div class="hidden md:flex items-center gap-8 text-sm">
-                <a href="#skills" class="text-gray-400 hover:text-white transition-colors">技能</a>
-                <a href="#categories" class="text-gray-400 hover:text-white transition-colors">分类</a>
-                <a href="#trending" class="text-gray-400 hover:text-white transition-colors">热门</a>
+                <a href="#skills" class="text-gray-500 hover:text-white transition-colors">技能</a>
+                <a href="#categories" class="text-gray-500 hover:text-white transition-colors">分类</a>
+                <a href="#trending" class="text-gray-500 hover:text-white transition-colors">热门</a>
             </div>
             
             <button class="btn-primary text-sm">提交技能</button>
@@ -154,7 +154,7 @@
                 </h1>
             </div>
             
-            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-light">
+            <p class="text-xl text-gray-500 mb-12 max-w-2xl mx-auto font-light">
                 精选 AI Agent 技能，让区块链开发更简单
             </p>
             
@@ -195,7 +195,7 @@
                     <div class="h-full flex flex-col">
                         <span class="text-xs text-purple-400 font-semibold mb-3">DeFi 自动化</span>
                         <h3 class="text-3xl font-bold mb-4">协议收益聚合器</h3>
-                        <p class="text-gray-400 mb-6 flex-1">
+                        <p class="text-gray-500 mb-6 flex-1">
                             自动扫描 Aave、Compound、Curve 等协议，实时寻找最高收益率并自动切换。24/7 运行，无需人工干预。
                         </p>
                         <div class="flex items-center justify-between">
@@ -203,7 +203,7 @@
                                 <span class="tag-modern text-purple-300">Python</span>
                                 <span class="tag-modern text-blue-300">Web3.py</span>
                             </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <div class="flex items-center gap-2 text-sm text-gray-500">
                                 <span>⭐ 4.9</span>
                                 <span>•</span>
                                 <span>6.1k 下载</span>
@@ -216,7 +216,7 @@
                 <div class="bento-card">
                     <span class="text-xs text-blue-400 font-semibold mb-3 block">交易</span>
                     <h3 class="text-xl font-bold mb-2">MEV 机器人</h3>
-                    <p class="text-gray-400 text-sm mb-4">Mempool 监控 + 三明治攻击</p>
+                    <p class="text-gray-500 text-sm mb-4">Mempool 监控 + 三明治攻击</p>
                     <div class="flex items-center gap-2 text-xs text-gray-500">
                         <span>⭐ 4.8</span>
                         <span>•</span>
@@ -228,7 +228,7 @@
                 <div class="bento-card">
                     <span class="text-xs text-green-400 font-semibold mb-3 block">分析</span>
                     <h3 class="text-xl font-bold mb-2">Smart Money</h3>
-                    <p class="text-gray-400 text-sm mb-4">追踪聪明钱地址</p>
+                    <p class="text-gray-500 text-sm mb-4">追踪聪明钱地址</p>
                     <div class="flex items-center gap-2 text-xs text-gray-500">
                         <span>⭐ 4.7</span>
                         <span>•</span>
@@ -240,14 +240,14 @@
                 <div class="md:col-span-1 bento-card">
                     <span class="text-xs text-purple-400 font-semibold mb-3 block">安全</span>
                     <h3 class="text-2xl font-bold mb-3">合约审计工具</h3>
-                    <p class="text-gray-400 text-sm mb-4">
+                    <p class="text-gray-500 text-sm mb-4">
                         Slither + Mythril 集成，自动检测重入、溢出、权限漏洞
                     </p>
                     <div class="flex gap-2 mb-4">
                         <span class="tag-modern text-purple-300">Python</span>
                         <span class="tag-modern text-red-300">Slither</span>
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
                         <span>⭐ 5.0</span>
                         <span>•</span>
                         <span>4.5k 下载</span>
@@ -258,7 +258,7 @@
                 <div class="md:col-span-2 bento-card">
                     <span class="text-xs text-yellow-400 font-semibold mb-3 block">空投</span>
                     <h3 class="text-2xl font-bold mb-3">多账号空投收割机</h3>
-                    <p class="text-gray-400 text-sm mb-4">
+                    <p class="text-gray-500 text-sm mb-4">
                         30+ 人工作室经验。LayerZero、zkSync、Starknet 批量交互，Sybil 检测规避。
                     </p>
                     <div class="flex items-center justify-between">
@@ -267,7 +267,7 @@
                             <span class="tag-modern text-green-300">Selenium</span>
                             <span class="tag-modern text-orange-300">Anti-Sybil</span>
                         </div>
-                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
                             <span>⭐ 4.7</span>
                             <span>•</span>
                             <span>5.2k</span>
@@ -279,7 +279,7 @@
                 <div class="bento-card">
                     <span class="text-xs text-red-400 font-semibold mb-3 block">NFT</span>
                     <h3 class="text-xl font-bold mb-2">扫地板机器人</h3>
-                    <p class="text-gray-400 text-sm mb-4">OpenSea + Blur 监控</p>
+                    <p class="text-gray-500 text-sm mb-4">OpenSea + Blur 监控</p>
                     <div class="flex items-center gap-2 text-xs text-gray-500">
                         <span>⭐ 4.6</span>
                         <span>•</span>
@@ -291,7 +291,7 @@
                 <div class="bento-card">
                     <span class="text-xs text-amber-400 font-semibold mb-3 block">DeFi</span>
                     <h3 class="text-xl font-bold mb-2">Bags.fm 复投</h3>
-                    <p class="text-gray-400 text-sm mb-4">创作者费用自动复投</p>
+                    <p class="text-gray-500 text-sm mb-4">创作者费用自动复投</p>
                     <div class="flex items-center gap-2 text-xs text-gray-500">
                         <span>⭐ 4.6</span>
                         <span>•</span>
@@ -303,7 +303,7 @@
                 <div class="md:col-span-2 bento-card">
                     <span class="text-xs text-blue-400 font-semibold mb-3 block">交易</span>
                     <h3 class="text-3xl font-bold mb-4">Meme 币狙击器</h3>
-                    <p class="text-gray-400 mb-6">
+                    <p class="text-gray-500 mb-6">
                         监控 Pump.fun、Four.meme 新币发布，自动分析合约安全性，快速买入。支持止盈止损策略。
                     </p>
                     <div class="flex items-center justify-between">
@@ -312,7 +312,7 @@
                             <span class="tag-modern text-blue-300">WebSocket</span>
                             <span class="tag-modern text-red-300">Slither</span>
                         </div>
-                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
                             <span>⭐ 4.5</span>
                             <span>•</span>
                             <span>3.8k</span>
@@ -324,14 +324,14 @@
                 <div class="bento-card">
                     <span class="text-xs text-green-400 font-semibold mb-3 block">分析</span>
                     <h3 class="text-2xl font-bold mb-3">量化回测引擎</h3>
-                    <p class="text-gray-400 text-sm mb-4">
+                    <p class="text-gray-500 text-sm mb-4">
                         策略回测、参数优化、风险模型
                     </p>
                     <div class="flex gap-2 mb-4">
                         <span class="tag-modern text-purple-300">Python</span>
                         <span class="tag-modern text-blue-300">Pandas</span>
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
                         <span>⭐ 4.9</span>
                         <span>•</span>
                         <span>2.1k</span>
@@ -347,19 +347,19 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="text-center">
                     <div class="text-5xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">78</div>
-                    <div class="text-gray-400 text-sm">技能总数</div>
+                    <div class="text-gray-500 text-sm">技能总数</div>
                 </div>
                 <div class="text-center">
                     <div class="text-5xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">5.2k</div>
-                    <div class="text-gray-400 text-sm">开发者</div>
+                    <div class="text-gray-500 text-sm">开发者</div>
                 </div>
                 <div class="text-center">
                     <div class="text-5xl font-bold mb-2 bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">42k</div>
-                    <div class="text-gray-400 text-sm">总下载</div>
+                    <div class="text-gray-500 text-sm">总下载</div>
                 </div>
                 <div class="text-center">
                     <div class="text-5xl font-bold mb-2 bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">98%</div>
-                    <div class="text-gray-400 text-sm">满意度</div>
+                    <div class="text-gray-500 text-sm">满意度</div>
                 </div>
             </div>
         </div>
@@ -382,10 +382,10 @@
                 <div class="skill-card-modern">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-semibold text-amber-400">DeFi</span>
-                        <span class="text-sm text-gray-400">⭐ 4.9</span>
+                        <span class="text-sm text-gray-500">⭐ 4.9</span>
                     </div>
                     <h4 class="text-xl font-bold mb-2">DeFi 协议自动化</h4>
-                    <p class="text-gray-400 text-sm mb-4">监控流动性池、自动再平衡投资组合</p>
+                    <p class="text-gray-500 text-sm mb-4">监控流动性池、自动再平衡投资组合</p>
                     <div class="flex gap-2">
                         <span class="tag-modern text-purple-300">Solidity</span>
                         <span class="tag-modern text-blue-300">Python</span>
@@ -396,10 +396,10 @@
                 <div class="skill-card-modern">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-semibold text-blue-400">交易</span>
-                        <span class="text-sm text-gray-400">⭐ 4.8</span>
+                        <span class="text-sm text-gray-500">⭐ 4.8</span>
                     </div>
                     <h4 class="text-xl font-bold mb-2">MEV 狙击机器人</h4>
-                    <p class="text-gray-400 text-sm mb-4">监控 mempool，抢先交易获利</p>
+                    <p class="text-gray-500 text-sm mb-4">监控 mempool，抢先交易获利</p>
                     <div class="flex gap-2">
                         <span class="tag-modern text-purple-300">Rust</span>
                         <span class="tag-modern text-orange-300">Flashbots</span>
@@ -410,10 +410,10 @@
                 <div class="skill-card-modern">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-semibold text-purple-400">安全</span>
-                        <span class="text-sm text-gray-400">⭐ 5.0</span>
+                        <span class="text-sm text-gray-500">⭐ 5.0</span>
                     </div>
                     <h4 class="text-xl font-bold mb-2">智能合约审计工具</h4>
-                    <p class="text-gray-400 text-sm mb-4">自动检测重入、溢出、权限漏洞</p>
+                    <p class="text-gray-500 text-sm mb-4">自动检测重入、溢出、权限漏洞</p>
                     <div class="flex gap-2">
                         <span class="tag-modern text-purple-300">Python</span>
                         <span class="tag-modern text-red-300">Slither</span>
@@ -424,10 +424,10 @@
                 <div class="skill-card-modern">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-semibold text-green-400">分析</span>
-                        <span class="text-sm text-gray-400">⭐ 4.7</span>
+                        <span class="text-sm text-gray-500">⭐ 4.7</span>
                     </div>
                     <h4 class="text-xl font-bold mb-2">Smart Money 追踪器</h4>
-                    <p class="text-gray-400 text-sm mb-4">实时追踪聪明钱地址，复制交易策略</p>
+                    <p class="text-gray-500 text-sm mb-4">实时追踪聪明钱地址，复制交易策略</p>
                     <div class="flex gap-2">
                         <span class="tag-modern text-purple-300">TypeScript</span>
                         <span class="tag-modern text-green-300">Nansen</span>
@@ -438,10 +438,10 @@
                 <div class="skill-card-modern">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-semibold text-red-400">NFT</span>
-                        <span class="text-sm text-gray-400">⭐ 4.6</span>
+                        <span class="text-sm text-gray-500">⭐ 4.6</span>
                     </div>
                     <h4 class="text-xl font-bold mb-2">NFT 扫地板机器人</h4>
-                    <p class="text-gray-400 text-sm mb-4">监控 OpenSea、Blur 地板价，自动扫货</p>
+                    <p class="text-gray-500 text-sm mb-4">监控 OpenSea、Blur 地板价，自动扫货</p>
                     <div class="flex gap-2">
                         <span class="tag-modern text-purple-300">Node.js</span>
                         <span class="tag-modern text-blue-300">OpenSea</span>
@@ -452,10 +452,10 @@
                 <div class="skill-card-modern">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-semibold text-yellow-400">空投</span>
-                        <span class="text-sm text-gray-400">⭐ 4.7</span>
+                        <span class="text-sm text-gray-500">⭐ 4.7</span>
                     </div>
                     <h4 class="text-xl font-bold mb-2">空投农场自动化</h4>
-                    <p class="text-gray-400 text-sm mb-4">批量管理钱包，防女巫检测</p>
+                    <p class="text-gray-500 text-sm mb-4">批量管理钱包，防女巫检测</p>
                     <div class="flex gap-2">
                         <span class="tag-modern text-purple-300">Python</span>
                         <span class="tag-modern text-green-300">Selenium</span>
@@ -466,10 +466,10 @@
                 <div class="skill-card-modern">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-semibold text-amber-400">DeFi</span>
-                        <span class="text-sm text-gray-400">⭐ 4.6</span>
+                        <span class="text-sm text-gray-500">⭐ 4.6</span>
                     </div>
                     <h4 class="text-xl font-bold mb-2">Bags.fm 费用复投器</h4>
-                    <p class="text-gray-400 text-sm mb-4">自动领取创作者费用并复投</p>
+                    <p class="text-gray-500 text-sm mb-4">自动领取创作者费用并复投</p>
                     <div class="flex gap-2">
                         <span class="tag-modern text-purple-300">Solana</span>
                         <span class="tag-modern text-blue-300">Bags.fm</span>
@@ -480,10 +480,10 @@
                 <div class="skill-card-modern">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-semibold text-blue-400">交易</span>
-                        <span class="text-sm text-gray-400">⭐ 4.5</span>
+                        <span class="text-sm text-gray-500">⭐ 4.5</span>
                     </div>
                     <h4 class="text-xl font-bold mb-2">Meme 币狙击器</h4>
-                    <p class="text-gray-400 text-sm mb-4">Pump.fun + Four.meme 新币监控</p>
+                    <p class="text-gray-500 text-sm mb-4">Pump.fun + Four.meme 新币监控</p>
                     <div class="flex gap-2">
                         <span class="tag-modern text-purple-300">Node.js</span>
                         <span class="tag-modern text-blue-300">WebSocket</span>
@@ -494,10 +494,10 @@
                 <div class="skill-card-modern">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-semibold text-green-400">分析</span>
-                        <span class="text-sm text-gray-400">⭐ 4.9</span>
+                        <span class="text-sm text-gray-500">⭐ 4.9</span>
                     </div>
                     <h4 class="text-xl font-bold mb-2">量化交易回测引擎</h4>
-                    <p class="text-gray-400 text-sm mb-4">回测策略、优化参数、风险模型</p>
+                    <p class="text-gray-500 text-sm mb-4">回测策略、优化参数、风险模型</p>
                     <div class="flex gap-2">
                         <span class="tag-modern text-purple-300">Python</span>
                         <span class="tag-modern text-blue-300">Pandas</span>
@@ -513,7 +513,7 @@
             <h2 class="text-6xl font-black mb-6">
                 准备好了吗？
             </h2>
-            <p class="text-xl text-gray-400 mb-12 font-light">
+            <p class="text-xl text-gray-500 mb-12 font-light">
                 加入 5000+ 开发者，用 AI Agent 加速你的 Web3 项目
             </p>
             <button class="btn-primary text-lg">
@@ -531,7 +531,7 @@
                     <span class="font-semibold">Web3 Skill Hub</span>
                 </div>
                 
-                <div class="flex gap-8 text-sm text-gray-400">
+                <div class="flex gap-8 text-sm text-gray-500">
                     <a href="#" class="hover:text-white transition-colors">GitHub</a>
                     <a href="#" class="hover:text-white transition-colors">Discord</a>
                     <a href="#" class="hover:text-white transition-colors">Twitter</a>
