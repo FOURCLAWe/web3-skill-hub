@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web3 Skill Hub - 区块链技能市场</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -218,7 +219,7 @@
     <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-amber-500 rounded-lg"></div>
+                <img src="logo.jpg" alt="Web3 Skill Hub" class="w-8 h-8 rounded-lg">
                 <span class="text-lg font-bold">Web3 Skill Hub</span>
             </div>
             
@@ -281,6 +282,53 @@
             
             <!-- Bento Grid Layout -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Large Card - Binance Pro -->
+                <div class="md:col-span-2 md:row-span-2 bento-card" data-url="https://clawhub.com/totaleasy/binance-pro">
+                    <div class="h-full flex flex-col">
+                        <span class="text-xs text-yellow-400 font-semibold mb-3">🔥 CEX 交易</span>
+                        <h3 class="text-3xl font-bold mb-4">Binance Pro</h3>
+                        <p class="text-gray-500 mb-6 flex-1">
+                            完整的币安集成 - 世界最大加密货币交易所。现货、合约交易（最高 125x 杠杆）、质押和投资组合管理。检查余额、开平仓、设置止损止盈、查看盈亏。
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex gap-2">
+                                <span class="tag-modern text-yellow-300">Binance</span>
+                                <span class="tag-modern text-red-300">125x 杠杆</span>
+                                <span class="tag-modern text-blue-300">现货+合约</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500">
+                                <span>⭐ 11</span>
+                                <span>•</span>
+                                <span>5.4k 下载</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Small Card - OKX Trader -->
+                <div class="bento-card" data-url="https://clawhub.com/esojourn/okx-trader">
+                    <span class="text-xs text-blue-400 font-semibold mb-3 block">🔥 CEX 交易</span>
+                    <h3 class="text-xl font-bold mb-2">OKX Trader</h3>
+                    <p class="text-gray-500 text-sm mb-4">自动化网格策略和风控</p>
+                    <div class="flex items-center gap-2 text-xs text-gray-500">
+                        <span>⭐ 3</span>
+                        <span>•</span>
+                        <span>1.6k</span>
+                    </div>
+                </div>
+                
+                <!-- Small Card - OKX DEX -->
+                <div class="bento-card" data-url="https://clawhub.com/ricky321u/okx-dex">
+                    <span class="text-xs text-green-400 font-semibold mb-3 block">DEX</span>
+                    <h3 class="text-xl font-bold mb-2">OKX DEX</h3>
+                    <p class="text-gray-500 text-sm mb-4">DEX 聚合器报价和交换</p>
+                    <div class="flex items-center gap-2 text-xs text-gray-500">
+                        <span>⭐ 2</span>
+                        <span>•</span>
+                        <span>1.3k</span>
+                    </div>
+                </div>
+                
                 <!-- Large Card 1 -->
                 <div class="md:col-span-2 md:row-span-2 bento-card" data-url="https://clawhub.com/spirosrap/zapper">
                     <div class="h-full flex flex-col">
@@ -596,6 +644,90 @@
                 </div>
                 
                 <!-- Skill Card 10 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/totaleasy/binance-pro">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-yellow-400">CEX</span>
+                        <span class="text-sm text-gray-500">⭐ 11</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Binance Pro</h4>
+                    <p class="text-gray-500 text-sm mb-4">币安完整集成 - 现货/合约/质押</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-yellow-300">Binance</span>
+                        <span class="tag-modern text-red-300">125x</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 11 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/esojourn/okx-trader">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-blue-400">CEX</span>
+                        <span class="text-sm text-gray-500">⭐ 3</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">OKX Trader</h4>
+                    <p class="text-gray-500 text-sm mb-4">OKX 自动化网格交易和风控</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-blue-300">OKX</span>
+                        <span class="tag-modern text-green-300">Grid</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 12 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/srikanthbellary/binance-spot-trader">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-amber-400">交易</span>
+                        <span class="text-sm text-gray-500">⭐ 7</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Binance Spot Trader</h4>
+                    <p class="text-gray-500 text-sm mb-4">LLM 驱动的现货交易机器人</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-yellow-300">Binance</span>
+                        <span class="tag-modern text-purple-300">AI</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 13 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/ricky321u/okx-dex">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-cyan-400">DEX</span>
+                        <span class="text-sm text-gray-500">⭐ 2</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">OKX DEX Aggregator</h4>
+                    <p class="text-gray-500 text-sm mb-4">获取最优交换报价和交易数据</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-blue-300">OKX</span>
+                        <span class="tag-modern text-green-300">DEX</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 14 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/TetrAVAD/binance-hunter">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-red-400">专业交易</span>
+                        <span class="text-sm text-gray-500">⭐ 6</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Binance Hunter</h4>
+                    <p class="text-gray-500 text-sm mb-4">AI 市场分析 + 自动风控</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-yellow-300">Binance</span>
+                        <span class="tag-modern text-red-300">125x</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 15 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/fpsjago/binance-dca-tool">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-green-400">定投</span>
+                        <span class="text-sm text-gray-500">⭐ 3</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Binance DCA Tool</h4>
+                    <p class="text-gray-500 text-sm mb-4">币安定投工具 - 自动定期买入</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-yellow-300">Binance</span>
+                        <span class="tag-modern text-green-300">DCA</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 16 -->
                 <div class="skill-card-modern" data-url="https://clawhub.com/planetai87/warren-deploy">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-semibold text-cyan-400">部署</span>
@@ -678,6 +810,76 @@
                         <span class="tag-modern text-blue-300">Explorer</span>
                     </div>
                 </div>
+                
+                <!-- Skill Card 16 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/AaronLLee/dex-quote">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-blue-400">DEX</span>
+                        <span class="text-sm text-gray-500">⭐ 2</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">OKX DEX Quote</h4>
+                    <p class="text-gray-500 text-sm mb-4">获取最优 DEX 交换报价</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-blue-300">OKX</span>
+                        <span class="tag-modern text-green-300">Aggregator</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 17 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/AaronLLee/easy-swap">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-green-400">DEX</span>
+                        <span class="text-sm text-gray-500">⭐ 0</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">OKX DEX Swap</h4>
+                    <p class="text-gray-500 text-sm mb-4">链上代币交换执行和广播</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-blue-300">OKX</span>
+                        <span class="tag-modern text-purple-300">Swap</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 18 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/fpsjago/trading-research">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-purple-400">研究</span>
+                        <span class="text-sm text-gray-500">⭐ 2</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Trading Research</h4>
+                    <p class="text-gray-500 text-sm mb-4">币安交易研究和技术分析</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-yellow-300">Binance</span>
+                        <span class="tag-modern text-purple-300">Analysis</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 19 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/ok-james-01/okx-dex-market">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-cyan-400">市场</span>
+                        <span class="text-sm text-gray-500">⭐ 0</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">OKX DEX Market</h4>
+                    <p class="text-gray-500 text-sm mb-4">链上市场数据 - 价格、K线、交易</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-blue-300">OKX</span>
+                        <span class="tag-modern text-green-300">Market Data</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 20 -->
+                <div class="skill-card-modern" data-url="https://clawhub.com/ivangdavila/binance">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold text-yellow-400">API</span>
+                        <span class="text-sm text-gray-500">⭐ 1</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Binance API</h4>
+                    <p class="text-gray-500 text-sm mb-4">安全的 REST/WebSocket 工作流</p>
+                    <div class="flex gap-2">
+                        <span class="tag-modern text-yellow-300">Binance</span>
+                        <span class="tag-modern text-blue-300">SDK</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -702,7 +904,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 bg-gradient-to-br from-purple-500 to-amber-500 rounded"></div>
+                    <img src="logo.jpg" alt="Web3 Skill Hub" class="w-6 h-6 rounded">
                     <span class="font-semibold">Web3 Skill Hub</span>
                 </div>
                 
@@ -1122,6 +1324,127 @@
                 tags: ['Multi-Chain', 'Explorer', 'Balance', 'Transaction'],
                 agentInstall: '帮我安装 OpenScan Crypto 技能',
                 humanInstall: 'clawhub install josealoha666/openscan-crypto'
+            },
+            'https://clawhub.com/totaleasy/binance-pro': {
+                name: 'Binance Pro',
+                author: '@totaleasy',
+                downloads: '5.4k',
+                stars: '11',
+                version: 'v1.0',
+                description: '完整的币安集成 - 世界最大加密货币交易所。现货、合约交易（最高 125x 杠杆）、质押和投资组合管理。检查余额、开平仓、设置止损止盈、查看盈亏。支持所有币安交易功能。',
+                tags: ['Binance', 'Spot', 'Futures', '125x Leverage', 'Staking'],
+                agentInstall: '帮我安装 Binance Pro 技能',
+                humanInstall: 'clawhub install totaleasy/binance-pro'
+            },
+            'https://clawhub.com/esojourn/okx-trader': {
+                name: 'OKX Trader',
+                author: '@esojourn',
+                downloads: '1.6k',
+                stars: '3',
+                version: 'v6.0',
+                description: '自动化 OKX 交易技能，支持双网格策略、自动重新缩放和风险控制。管理订单和监控账户表现。适合量化交易和自动化策略执行。',
+                tags: ['OKX', 'Grid Trading', 'Risk Control', 'Automation'],
+                agentInstall: '帮我安装 OKX Trader 技能',
+                humanInstall: 'clawhub install esojourn/okx-trader'
+            },
+            'https://clawhub.com/ricky321u/okx-dex': {
+                name: 'OKX DEX Aggregator',
+                author: '@ricky321u',
+                downloads: '1.3k',
+                stars: '2',
+                version: 'v1.0',
+                description: 'OKX DEX 聚合器（v6）。获取交换报价、交换/批准交易数据、代币和链信息。支持多链 DEX 最优路径查询。',
+                tags: ['OKX', 'DEX', 'Aggregator', 'Swap'],
+                agentInstall: '帮我安装 OKX DEX 技能',
+                humanInstall: 'clawhub install ricky321u/okx-dex'
+            },
+            'https://clawhub.com/srikanthbellary/binance-spot-trader': {
+                name: 'Binance Spot Trader',
+                author: '@srikanthbellary',
+                downloads: '2.2k',
+                stars: '7',
+                version: 'v1.0',
+                description: '自主币安现货交易机器人，配备 LLM 驱动的市场分析。支持动量交易、均值回归和 DCA 策略。包含技术分析、LLM 情绪评估、仓位管理和投资组合追踪。',
+                tags: ['Binance', 'Spot', 'AI Trading', 'DCA', 'Technical Analysis'],
+                agentInstall: '帮我安装 Binance Spot Trader 技能',
+                humanInstall: 'clawhub install srikanthbellary/binance-spot-trader'
+            },
+            'https://clawhub.com/TetrAVAD/binance-hunter': {
+                name: 'Binance Hunter',
+                author: '@TetrAVAD',
+                downloads: '1.9k',
+                stars: '6',
+                version: 'v1.0',
+                description: 'The Hunter：专业币安交易技能。具有 AI 市场分析、自动风险计算和 125x 杠杆支持。专为专业交易者设计的高级交易工具。',
+                tags: ['Binance', 'Professional', 'AI Analysis', '125x Leverage'],
+                agentInstall: '帮我安装 Binance Hunter 技能',
+                humanInstall: 'clawhub install TetrAVAD/binance-hunter'
+            },
+            'https://clawhub.com/fpsjago/binance-dca-tool': {
+                name: 'Binance DCA Tool',
+                author: '@fpsjago',
+                downloads: '1.1k',
+                stars: '3',
+                version: 'v1.0',
+                description: '币安定投（DCA）工具，用于自动化和手动定期加密货币购买。规划 DCA 策略、执行定期买入、查看 DCA 预测、查看交易历史或管理系统性购买计划。',
+                tags: ['Binance', 'DCA', 'Dollar-Cost Averaging', 'Recurring Buy'],
+                agentInstall: '帮我安装 Binance DCA Tool 技能',
+                humanInstall: 'clawhub install fpsjago/binance-dca-tool'
+            },
+            'https://clawhub.com/AaronLLee/dex-quote': {
+                name: 'OKX DEX Quote',
+                author: '@AaronLLee',
+                downloads: '337',
+                stars: '2',
+                version: 'v1.0',
+                description: '从 OKX DEX 聚合器 API（v6）获取最优交换报价。获取任何支持的 EVM 链上代币交换的最佳价格。支持多链 DEX 路径优化。',
+                tags: ['OKX', 'DEX', 'Quote', 'Best Price'],
+                agentInstall: '帮我安装 OKX DEX Quote 技能',
+                humanInstall: 'clawhub install AaronLLee/dex-quote'
+            },
+            'https://clawhub.com/AaronLLee/easy-swap': {
+                name: 'OKX DEX Swap',
+                author: '@AaronLLee',
+                downloads: '325',
+                stars: '0',
+                version: 'v1.0',
+                description: '通过 OKX DEX 聚合器 API（v6）在链上执行代币交换。构建完整的交换流程：获取交换 calldata → 签名交易 → 广播到链上。',
+                tags: ['OKX', 'DEX', 'Swap', 'Execute'],
+                agentInstall: '帮我安装 OKX DEX Swap 技能',
+                humanInstall: 'clawhub install AaronLLee/easy-swap'
+            },
+            'https://clawhub.com/fpsjago/trading-research': {
+                name: 'Trading Research',
+                author: '@fpsjago',
+                downloads: '2.8k',
+                stars: '2',
+                version: 'v1.0',
+                description: '币安加密货币交易研究、技术分析和仓位管理。用于加密货币价格、市场数据、交易分析、DCA 规划、仓位大小、巨鲸活动或任何关于比特币、山寨币或加密市场的交易研究问题。',
+                tags: ['Binance', 'Research', 'Technical Analysis', 'Market Data'],
+                agentInstall: '帮我安装 Trading Research 技能',
+                humanInstall: 'clawhub install fpsjago/trading-research'
+            },
+            'https://clawhub.com/ok-james-01/okx-dex-market': {
+                name: 'OKX DEX Market',
+                author: '@ok-james-01',
+                downloads: '205',
+                stars: '0',
+                version: 'v2.0',
+                description: '实时链上市场数据：代币价格、价格图表（K线、OHLC）、交易历史、交换活动。还涵盖链上统计数据和趋势分析。',
+                tags: ['OKX', 'Market Data', 'K-Line', 'Price Chart'],
+                agentInstall: '帮我安装 OKX DEX Market 技能',
+                humanInstall: 'clawhub install ok-james-01/okx-dex-market'
+            },
+            'https://clawhub.com/ivangdavila/binance': {
+                name: 'Binance API',
+                author: '@ivangdavila',
+                downloads: '347',
+                stars: '1',
+                version: 'v1.0',
+                description: '通过安全的 REST、WebSocket 和 SDK 工作流操作币安现货 API，具有签名请求、速率限制控制和测试网优先执行。适合开发者集成币安 API。',
+                tags: ['Binance', 'API', 'REST', 'WebSocket', 'SDK'],
+                agentInstall: '帮我安装 Binance API 技能',
+                humanInstall: 'clawhub install ivangdavila/binance'
             }
         };
         
