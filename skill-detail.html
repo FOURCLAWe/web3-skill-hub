@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>技能详情 - Web3 Skill Hub</title>
+    <title>DeFi 协议自动化 - Web3 Skill Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,21 +39,58 @@
             background-clip: text;
         }
         
-        .glow {
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s ease;
         }
         
-        pre {
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .install-tab {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .install-tab.active {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: #8B5CF6;
+        }
+        
+        .code-block {
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0.5rem;
-            padding: 1rem;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            position: relative;
             overflow-x: auto;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(139, 92, 246, 0.3);
         }
         
         code {
             font-family: 'Courier New', monospace;
             font-size: 0.9rem;
+            color: #E2E8F0;
         }
     </style>
 </head>
@@ -76,121 +113,215 @@
 
     <!-- Skill Detail -->
     <div class="pt-32 pb-20 px-4">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-4xl mx-auto">
             <!-- Header -->
             <div class="glass rounded-3xl p-8 mb-6">
                 <div class="flex items-start justify-between mb-6">
-                    <div>
-                        <span class="bg-gradient-to-r from-amber-500 to-orange-600 text-white text-sm px-4 py-1 rounded-full font-semibold">DeFi</span>
-                        <h2 class="text-4xl font-bold mt-4 mb-2" id="skillName">DeFi 协议自动化</h2>
-                        <p class="text-slate-400">由 <span class="text-purple-400">@SwarmSync</span> 创建</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-20 h-20 bg-gradient-to-br from-amber-500 to-purple-600 rounded-2xl flex items-center justify-center text-3xl font-bold">
+                            D
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold mb-1">DeFi 协议自动化</h2>
+                            <p class="text-slate-400">@SwarmSync</p>
+                        </div>
                     </div>
                     
-                    <div class="text-right">
-                        <div class="flex items-center gap-2 mb-2">
-                            <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                            </svg>
-                            <span class="text-3xl font-bold">4.9</span>
-                        </div>
-                        <p class="text-slate-400 text-sm">328 次使用</p>
-                    </div>
+                    <button class="glass px-4 py-2 rounded-lg hover:bg-white/10 transition-colors cursor-pointer">
+                        <svg class="w-6 h-6 text-slate-400 hover:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="mb-6">
+                    <span class="inline-block bg-green-500/20 text-green-300 text-sm px-3 py-1 rounded-full">
+                        📦 v1.18.0
+                    </span>
                 </div>
                 
                 <p class="text-lg text-slate-300 mb-6">
-                    监控流动性池、自动再平衡投资组合、执行套利策略。24/7 无需人工干预。
+                    监控流动性池、自动再平衡投资组合、执行套利策略。24/7 无需人工干预，智能寻找最高收益率。
                 </p>
                 
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-sm bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full">Solidity</span>
-                    <span class="text-sm bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full">Web3.py</span>
-                    <span class="text-sm bg-green-500/20 text-green-300 px-3 py-1 rounded-full">Uniswap</span>
+                <div class="mb-6">
+                    <p class="text-sm text-slate-400 mb-2">
+                        技能数据来源于 <a href="https://clawhub.com" class="text-purple-400 hover:text-purple-300">ClawHub ↗</a>
+                    </p>
                 </div>
-            </div>
-
-            <!-- Features -->
-            <div class="glass rounded-3xl p-8 mb-6">
-                <h3 class="text-2xl font-bold mb-6 gradient-text">核心功能</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="stat-card">
+                        <svg class="w-8 h-8 text-blue-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
                         </svg>
-                        <div>
-                            <h4 class="font-semibold mb-1">实时监控多个 DeFi 协议</h4>
-                            <p class="text-slate-400 text-sm">同时监控 Aave、Compound、Curve 等主流协议</p>
-                        </div>
+                        <div class="text-2xl font-bold mb-1">6.1k</div>
+                        <div class="text-slate-400 text-sm">下载量</div>
                     </div>
                     
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    <div class="stat-card">
+                        <svg class="w-8 h-8 text-yellow-400 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                         </svg>
-                        <div>
-                            <h4 class="font-semibold mb-1">自动寻找最高 APY</h4>
-                            <p class="text-slate-400 text-sm">智能对比收益率，自动切换到最优协议</p>
-                        </div>
+                        <div class="text-2xl font-bold mb-1">16</div>
+                        <div class="text-slate-400 text-sm">收藏</div>
                     </div>
                     
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    <div class="stat-card">
+                        <svg class="w-8 h-8 text-green-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                         </svg>
-                        <div>
-                            <h4 class="font-semibold mb-1">智能再平衡策略</h4>
-                            <p class="text-slate-400 text-sm">根据市场变化自动调整资产配置</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <div>
-                            <h4 class="font-semibold mb-1">Gas 费优化</h4>
-                            <p class="text-slate-400 text-sm">智能选择最佳交易时机，节省 Gas 费用</p>
-                        </div>
+                        <div class="text-2xl font-bold mb-1">15</div>
+                        <div class="text-slate-400 text-sm">安装量</div>
                     </div>
                 </div>
             </div>
 
             <!-- Installation -->
             <div class="glass rounded-3xl p-8 mb-6">
-                <h3 class="text-2xl font-bold mb-6 gradient-text">安装使用</h3>
+                <h3 class="text-2xl font-bold mb-6 gradient-text">安装方式</h3>
                 
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-3">1. 安装依赖</h4>
-                    <pre><code>npm install -g defi-automation-agent
-# 或
-pip install defi-automation-agent</code></pre>
+                <!-- Tabs -->
+                <div class="flex gap-4 mb-6">
+                    <button class="install-tab active glass px-6 py-3 rounded-xl font-semibold border border-slate-700" onclick="showTab('agent')">
+                        🤖 我是 Agent
+                    </button>
+                    <button class="install-tab glass px-6 py-3 rounded-xl font-semibold border border-slate-700" onclick="showTab('human')">
+                        👤 我是 Human
+                    </button>
                 </div>
                 
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-3">2. 配置环境变量</h4>
-                    <pre><code>export WALLET_PRIVATE_KEY="your_private_key"
-export RPC_URL="https://mainnet.infura.io/v3/YOUR_KEY"
-export MIN_APY=5.0  # 最低收益率阈值</code></pre>
+                <!-- Agent Installation -->
+                <div id="agent-install" class="install-content">
+                    <p class="text-slate-300 mb-4">
+                        直接复制以下提示词，发送给你的 AI 助手即可完成安装。
+                    </p>
+                    
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode('agent-code')">
+                            📋 复制提示词
+                        </button>
+                        <code id="agent-code">请先检查是否已安装 SkillHub 商店，若未安装，请根据 https://skillhub-1388575217.cos.ap-guangzhou.myqcloud.com/install/skillhub.md 安装 SkillHub 商店，然后安装 defi-automation 技能。
+
+若已安装，则直接安装 defi-automation 技能。</code>
+                    </div>
+                    
+                    <p class="text-slate-400 text-sm mt-4">
+                        适用于 Claude、ChatGPT、Cursor 等任何 AI 助手。
+                    </p>
                 </div>
                 
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold mb-3">3. 启动 Agent</h4>
-                    <pre><code>defi-agent start --protocols aave,compound,curve
-# 或使用配置文件
-defi-agent start --config config.json</code></pre>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-3">4. 监控运行状态</h4>
-                    <pre><code>defi-agent status
-defi-agent logs --tail 100</code></pre>
+                <!-- Human Installation -->
+                <div id="human-install" class="install-content hidden">
+                    <p class="text-slate-300 mb-4">
+                        使用命令行工具安装：
+                    </p>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-3">1. 安装 ClawHub CLI</h4>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode('install-cli')">
+                                📋 复制
+                            </button>
+                            <code id="install-cli">npm install -g clawhub</code>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-3">2. 安装技能</h4>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode('install-skill')">
+                                📋 复制
+                            </button>
+                            <code id="install-skill">clawhub install defi-automation</code>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3">3. 验证安装</h4>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode('verify')">
+                                📋 复制
+                            </button>
+                            <code id="verify">clawhub list | grep defi-automation</code>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Configuration Example -->
+            <!-- Skill Description -->
+            <div class="glass rounded-3xl p-8 mb-6">
+                <h3 class="text-2xl font-bold mb-6 gradient-text">技能介绍</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3">核心功能</h4>
+                        <ul class="space-y-3 text-slate-300">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span><strong>实时监控多个 DeFi 协议</strong> - 同时监控 Aave、Compound、Curve 等主流协议的收益率</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span><strong>自动寻找最高 APY</strong> - 智能对比收益率，自动切换到最优协议</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span><strong>智能再平衡策略</strong> - 根据市场变化自动调整资产配置</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span><strong>Gas 费优化</strong> - 智能选择最佳交易时机，节省 Gas 费用</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3">支持的协议</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="glass px-4 py-2 rounded-lg text-sm">Aave V3</span>
+                            <span class="glass px-4 py-2 rounded-lg text-sm">Compound V3</span>
+                            <span class="glass px-4 py-2 rounded-lg text-sm">Curve Finance</span>
+                            <span class="glass px-4 py-2 rounded-lg text-sm">Yearn Finance</span>
+                            <span class="glass px-4 py-2 rounded-lg text-sm">Convex Finance</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3">技术栈</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-sm bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full">Solidity</span>
+                            <span class="text-sm bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full">Python</span>
+                            <span class="text-sm bg-green-500/20 text-green-300 px-3 py-1 rounded-full">Web3.py</span>
+                            <span class="text-sm bg-yellow-500/20 text-yellow-300 px-3 py-1 rounded-full">Ethers.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration -->
             <div class="glass rounded-3xl p-8 mb-6">
                 <h3 class="text-2xl font-bold mb-6 gradient-text">配置示例</h3>
-                <pre><code>{
+                
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode('config-code')">
+                        📋 复制
+                    </button>
+                    <pre><code id="config-code">{
   "protocols": ["aave", "compound", "curve"],
+  "wallet": {
+    "address": "0x...",
+    "privateKey": "env:WALLET_PRIVATE_KEY"
+  },
   "strategies": {
     "rebalance": {
       "enabled": true,
@@ -206,18 +337,67 @@ defi-agent logs --tail 100</code></pre>
     "maxSlippage": 0.005,
     "maxGasPrice": 100,
     "emergencyStop": true
+  },
+  "notifications": {
+    "telegram": true,
+    "discord": false
   }
 }</code></pre>
+                </div>
+            </div>
+
+            <!-- Usage Guide -->
+            <div class="glass rounded-3xl p-8 mb-6">
+                <h3 class="text-2xl font-bold mb-6 gradient-text">使用指南</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3">1. 配置环境变量</h4>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode('env-code')">
+                                📋 复制
+                            </button>
+                            <code id="env-code">export WALLET_PRIVATE_KEY="your_private_key"
+export RPC_URL="https://mainnet.infura.io/v3/YOUR_KEY"
+export MIN_APY=5.0</code>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3">2. 启动 Agent</h4>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode('start-code')">
+                                📋 复制
+                            </button>
+                            <code id="start-code">defi-agent start --config config.json
+
+# 或使用命令行参数
+defi-agent start --protocols aave,compound,curve --min-apy 5.0</code>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3">3. 监控运行状态</h4>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode('monitor-code')">
+                                📋 复制
+                            </button>
+                            <code id="monitor-code">defi-agent status
+defi-agent logs --tail 100
+defi-agent stats --period 24h</code>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Safety Warning -->
-            <div class="glass rounded-3xl p-8 border-2 border-yellow-500/30">
+            <div class="glass rounded-3xl p-8 border-2 border-yellow-500/30 mb-6">
                 <div class="flex items-start gap-4">
                     <svg class="w-8 h-8 text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                     </svg>
                     <div>
-                        <h4 class="text-xl font-semibold mb-2 text-yellow-400">安全提示</h4>
+                        <h4 class="text-xl font-semibold mb-3 text-yellow-400">⚠️ 安全提示</h4>
                         <ul class="text-slate-300 space-y-2">
                             <li>• 请在测试网充分测试后再使用主网</li>
                             <li>• 建议使用专用钱包，不要存放大额资金</li>
@@ -229,14 +409,35 @@ defi-agent logs --tail 100</code></pre>
                 </div>
             </div>
 
-            <!-- CTA -->
-            <div class="mt-8 flex gap-4">
-                <button class="flex-1 bg-gradient-to-r from-amber-500 to-purple-600 px-8 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-opacity cursor-pointer glow">
-                    立即安装
-                </button>
-                <button class="glass px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-colors cursor-pointer">
-                    查看源码
-                </button>
+            <!-- Related Skills -->
+            <div class="glass rounded-3xl p-8">
+                <h3 class="text-2xl font-bold mb-6 gradient-text">相关技能</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="#" class="glass rounded-xl p-4 hover:bg-white/10 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center text-xl font-bold">
+                                M
+                            </div>
+                            <div>
+                                <h5 class="font-semibold">MEV 套利机器人</h5>
+                                <p class="text-slate-400 text-sm">监控 mempool 执行套利</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="glass rounded-xl p-4 hover:bg-white/10 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center text-xl font-bold">
+                                S
+                            </div>
+                            <div>
+                                <h5 class="font-semibold">Smart Money 追踪器</h5>
+                                <p class="text-slate-400 text-sm">追踪聪明钱地址</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -247,5 +448,30 @@ defi-agent logs --tail 100</code></pre>
             <p class="text-slate-400 text-sm">© 2026 Web3 Skill Hub. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function showTab(tab) {
+            // Update tabs
+            document.querySelectorAll('.install-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update content
+            document.getElementById('agent-install').classList.add('hidden');
+            document.getElementById('human-install').classList.add('hidden');
+            document.getElementById(tab + '-install').classList.remove('hidden');
+        }
+        
+        function copyCode(elementId) {
+            const code = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                event.target.textContent = '✅ 已复制';
+                setTimeout(() => {
+                    event.target.textContent = '📋 复制';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>

@@ -787,6 +787,25 @@
                 searchInput.focus();
             });
         });
+        
+        // Skill card click - navigate to detail page
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Don't trigger if clicking the detail button
+                if (e.target.closest('button')) {
+                    e.stopPropagation();
+                }
+                window.location.href = 'skill-detail.html';
+            });
+        });
+        
+        // Detail button click
+        document.querySelectorAll('.skill-card button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                window.location.href = 'skill-detail.html';
+            });
+        });
     </script>
 </body>
 </html>
