@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技能详情 - Web3 Skill Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #0F172A;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #F59E0B 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glow {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        pre {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="fixed top-4 left-4 right-4 z-50 glass rounded-2xl px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <h1 class="text-xl font-bold gradient-text">Web3 Skill Hub</h1>
+                </a>
+            </div>
+            
+            <a href="index.html" class="text-slate-400 hover:text-purple-400 transition-colors">← 返回首页</a>
+        </div>
+    </nav>
+
+    <!-- Skill Detail -->
+    <div class="pt-32 pb-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <!-- Header -->
+            <div class="glass rounded-3xl p-8 mb-6">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <span class="bg-gradient-to-r from-amber-500 to-orange-600 text-white text-sm px-4 py-1 rounded-full font-semibold">DeFi</span>
+                        <h2 class="text-4xl font-bold mt-4 mb-2" id="skillName">DeFi 协议自动化</h2>
+                        <p class="text-slate-400">由 <span class="text-purple-400">@SwarmSync</span> 创建</p>
+                    </div>
+                    
+                    <div class="text-right">
+                        <div class="flex items-center gap-2 mb-2">
+                            <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <span class="text-3xl font-bold">4.9</span>
+                        </div>
+                        <p class="text-slate-400 text-sm">328 次使用</p>
+                    </div>
+                </div>
+                
+                <p class="text-lg text-slate-300 mb-6">
+                    监控流动性池、自动再平衡投资组合、执行套利策略。24/7 无需人工干预。
+                </p>
+                
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-sm bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full">Solidity</span>
+                    <span class="text-sm bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full">Web3.py</span>
+                    <span class="text-sm bg-green-500/20 text-green-300 px-3 py-1 rounded-full">Uniswap</span>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="glass rounded-3xl p-8 mb-6">
+                <h3 class="text-2xl font-bold mb-6 gradient-text">核心功能</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold mb-1">实时监控多个 DeFi 协议</h4>
+                            <p class="text-slate-400 text-sm">同时监控 Aave、Compound、Curve 等主流协议</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold mb-1">自动寻找最高 APY</h4>
+                            <p class="text-slate-400 text-sm">智能对比收益率，自动切换到最优协议</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold mb-1">智能再平衡策略</h4>
+                            <p class="text-slate-400 text-sm">根据市场变化自动调整资产配置</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold mb-1">Gas 费优化</h4>
+                            <p class="text-slate-400 text-sm">智能选择最佳交易时机，节省 Gas 费用</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="glass rounded-3xl p-8 mb-6">
+                <h3 class="text-2xl font-bold mb-6 gradient-text">安装使用</h3>
+                
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold mb-3">1. 安装依赖</h4>
+                    <pre><code>npm install -g defi-automation-agent
+# 或
+pip install defi-automation-agent</code></pre>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold mb-3">2. 配置环境变量</h4>
+                    <pre><code>export WALLET_PRIVATE_KEY="your_private_key"
+export RPC_URL="https://mainnet.infura.io/v3/YOUR_KEY"
+export MIN_APY=5.0  # 最低收益率阈值</code></pre>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold mb-3">3. 启动 Agent</h4>
+                    <pre><code>defi-agent start --protocols aave,compound,curve
+# 或使用配置文件
+defi-agent start --config config.json</code></pre>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">4. 监控运行状态</h4>
+                    <pre><code>defi-agent status
+defi-agent logs --tail 100</code></pre>
+                </div>
+            </div>
+
+            <!-- Configuration Example -->
+            <div class="glass rounded-3xl p-8 mb-6">
+                <h3 class="text-2xl font-bold mb-6 gradient-text">配置示例</h3>
+                <pre><code>{
+  "protocols": ["aave", "compound", "curve"],
+  "strategies": {
+    "rebalance": {
+      "enabled": true,
+      "threshold": 0.5,
+      "interval": 3600
+    },
+    "arbitrage": {
+      "enabled": true,
+      "minProfit": 0.01
+    }
+  },
+  "risk": {
+    "maxSlippage": 0.005,
+    "maxGasPrice": 100,
+    "emergencyStop": true
+  }
+}</code></pre>
+            </div>
+
+            <!-- Safety Warning -->
+            <div class="glass rounded-3xl p-8 border-2 border-yellow-500/30">
+                <div class="flex items-start gap-4">
+                    <svg class="w-8 h-8 text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2 text-yellow-400">安全提示</h4>
+                        <ul class="text-slate-300 space-y-2">
+                            <li>• 请在测试网充分测试后再使用主网</li>
+                            <li>• 建议使用专用钱包，不要存放大额资金</li>
+                            <li>• 定期检查合约授权，及时撤销不需要的授权</li>
+                            <li>• 设置止损和最大损失限制</li>
+                            <li>• DeFi 有风险，投资需谨慎</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-8 flex gap-4">
+                <button class="flex-1 bg-gradient-to-r from-amber-500 to-purple-600 px-8 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-opacity cursor-pointer glow">
+                    立即安装
+                </button>
+                <button class="glass px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-colors cursor-pointer">
+                    查看源码
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-slate-400 text-sm">© 2026 Web3 Skill Hub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
