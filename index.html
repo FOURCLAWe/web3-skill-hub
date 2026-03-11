@@ -713,6 +713,83 @@
     </footer>
 
     <script>
+        // Search functionality
+        const searchInput = document.querySelector('.search-modern');
+        const searchBtn = searchInput.nextElementSibling;
+        
+        searchBtn.addEventListener('click', function() {
+            const query = searchInput.value.trim();
+            if (query) {
+                alert('搜索功能开发中：' + query);
+                // TODO: 实现搜索过滤
+            }
+        });
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Quick tag filters
+        document.querySelectorAll('.tag-modern').forEach(tag => {
+            if (tag.closest('.skill-card-modern, .bento-card')) return; // Skip skill tags
+            tag.addEventListener('click', function() {
+                searchInput.value = this.textContent.trim();
+                searchBtn.click();
+            });
+        });
+        
+        // Sort buttons
+        document.querySelectorAll('section button').forEach(btn => {
+            const text = btn.textContent.trim();
+            if (text === '最新' || text === '最热' || text === '评分') {
+                btn.addEventListener('click', function() {
+                    // Remove active state from all
+                    document.querySelectorAll('section button').forEach(b => {
+                        b.classList.remove('bg-purple-500/20', 'text-purple-300');
+                        b.classList.add('bg-white/5');
+                    });
+                    // Add active state
+                    this.classList.remove('bg-white/5');
+                    this.classList.add('bg-purple-500/20', 'text-purple-300');
+                    
+                    alert('排序功能开发中：' + text);
+                    // TODO: 实现排序
+                });
+            }
+        });
+        
+        // Submit skill button
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            const text = btn.textContent.trim();
+            if (text === '提交技能' || text === '开始探索') {
+                btn.addEventListener('click', function() {
+                    alert('功能开发中，敬请期待！');
+                    // TODO: 跳转到提交表单或技能列表
+                });
+            }
+        });
+        
+        // Footer links
+        document.querySelectorAll('footer a[href="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const text = this.textContent.trim();
+                const urls = {
+                    'GitHub': 'https://github.com/FOURCLAWe/web3-skill-hub',
+                    'Discord': 'https://discord.gg/openclaw',
+                    'Twitter': 'https://twitter.com',
+                    '文档': '#'
+                };
+                if (urls[text] && urls[text] !== '#') {
+                    window.open(urls[text], '_blank');
+                } else {
+                    alert('链接开发中：' + text);
+                }
+            });
+        });
+        
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
