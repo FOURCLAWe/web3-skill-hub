@@ -123,6 +123,94 @@
         .float-subtle {
             animation: float-subtle 8s ease-in-out infinite;
         }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(20, 20, 20, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+        }
+        
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(139, 92, 246, 0.3);
+        }
     </style>
 </head>
 <body class="gradient-bg">
@@ -684,6 +772,477 @@
             card.addEventListener('click', function() {
                 const url = this.getAttribute('data-url');
                 if (url) {
+                    window.open(url, '_blank');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+    <!-- Skill Detail Modal -->
+    <div id="skillModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 5L15 15M5 15L15 5"/>
+                </svg>
+            </button>
+            
+            <div class="modal-header">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-amber-500 rounded-xl"></div>
+                    <div>
+                        <h2 id="modalTitle" class="text-3xl font-bold"></h2>
+                        <p id="modalAuthor" class="text-sm text-gray-500"></p>
+                    </div>
+                </div>
+                <div class="flex gap-4 text-sm text-gray-500">
+                    <span id="modalDownloads"></span>
+                    <span id="modalStars"></span>
+                    <span id="modalVersion"></span>
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <!-- 技能来源 -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">📦 技能来源</h3>
+                    <a id="modalSource" href="#" target="_blank" class="text-purple-400 hover:text-purple-300 transition-colors"></a>
+                </div>
+                
+                <!-- 技能介绍 -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">📝 技能介绍</h3>
+                    <p id="modalDescription" class="text-gray-400 leading-relaxed"></p>
+                </div>
+                
+                <!-- 安装指南 -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-3">🚀 安装指南</h3>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-sm font-semibold text-purple-400 mb-2">Agent 安装（推荐）</h4>
+                        <p class="text-sm text-gray-500 mb-2">直接告诉你的 AI Agent：</p>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                            <pre class="text-sm text-gray-300"><code id="modalAgentInstall"></code></pre>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-sm font-semibold text-blue-400 mb-2">Human 安装</h4>
+                        <p class="text-sm text-gray-500 mb-2">通过命令行安装：</p>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                            <pre class="text-sm text-gray-300"><code id="modalHumanInstall"></code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 技术栈 -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">🛠️ 技术栈</h3>
+                    <div id="modalTags" class="flex flex-wrap gap-2"></div>
+                </div>
+                
+                <!-- 访问 ClawHub -->
+                <div class="text-center pt-4 border-t border-white/10">
+                    <a id="modalClawHubLink" href="#" target="_blank" class="btn-primary inline-block">
+                        在 ClawHub 查看完整信息
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Skill data
+        const skillsData = {
+            'https://clawhub.com/spirosrap/zapper': {
+                name: 'Zapper API',
+                author: '@spirosrap',
+                downloads: '1.6k',
+                stars: '1',
+                version: 'v1.0',
+                description: '查询 DeFi 投资组合数据，支持 50+ 条链。检查钱包余额、DeFi 仓位、NFT 持仓、代币价格、交易历史。支持 Base、Ethereum、Polygon、Arbitrum、Optimism 等主流链。通过 Zapper 的 GraphQL API 获取实时数据。',
+                tags: ['GraphQL', 'Multi-Chain', 'DeFi', 'Portfolio'],
+                agentInstall: '帮我安装 Zapper 技能',
+                humanInstall: 'clawhub install spirosrap/zapper'
+            },
+            'https://clawhub.com/waleolapo/crypto-whale-monitor': {
+                name: 'Crypto Whale Monitor',
+                author: '@waleolapo',
+                downloads: '2.2k',
+                stars: '5',
+                version: 'v4.0',
+                description: '监控大型加密货币钱包余额（巨鲸）。使用 Web3 RPC 检测可能影响市场的链上活动。实时追踪巨鲸转账、余额变化，预警市场波动。',
+                tags: ['Web3', 'Monitoring', 'Whale', 'Alert'],
+                agentInstall: '帮我安装 Crypto Whale Monitor 技能',
+                humanInstall: 'clawhub install waleolapo/crypto-whale-monitor'
+            },
+            'https://clawhub.com/dAAAb/walletconnect-agent': {
+                name: 'WalletConnect Agent',
+                author: '@dAAAb',
+                downloads: '2k',
+                stars: '1',
+                version: 'v10.0',
+                description: 'WalletConnect Agent - dApp 访问。通过 WalletConnect v2 连接任何 Web3 dApp 并自动签名交易。交换代币、铸造 NFT、DAO 投票、注册域名 - 人类能做的，Agent 都能自主完成。',
+                tags: ['WalletConnect', 'dApp', 'Auto-Sign', 'Web3'],
+                agentInstall: '帮我安装 WalletConnect Agent 技能',
+                humanInstall: 'clawhub install dAAAb/walletconnect-agent'
+            },
+            'https://clawhub.com/dAAAb/base-wallet': {
+                name: 'Base Wallet',
+                author: '@dAAAb',
+                downloads: '1.8k',
+                stars: '2',
+                version: 'v6.0',
+                description: 'Base Wallet - AI Agent 的加密身份。创建钱包、签名消息（SIWE）、程序化发送交易。无需浏览器扩展，无需人工干预。自主 Web3 Agent 的基础。',
+                tags: ['Base', 'Wallet', 'SIWE', 'Identity'],
+                agentInstall: '帮我安装 Base Wallet 技能',
+                humanInstall: 'clawhub install dAAAb/base-wallet'
+            },
+            'https://clawhub.com/planetai87/warren-nft': {
+                name: 'Warren NFT Deploy',
+                author: '@planetai87',
+                downloads: '1.5k',
+                stars: '1',
+                version: 'v1.0',
+                description: '在 MegaETH 区块链上永久部署 NFT 集合。图片通过 SSTORE2 存储在链上。创建和发布带版税、铸造和管理页面的 NFT 集合。完全去中心化的 NFT 部署方案。',
+                tags: ['MegaETH', 'NFT', 'SSTORE2', 'On-Chain'],
+                agentInstall: '帮我安装 Warren NFT Deploy 技能',
+                humanInstall: 'clawhub install planetai87/warren-nft'
+            },
+            'https://clawhub.com/Koba42Corp/wojak-ink': {
+                name: 'Wojak.ink NFT Browser',
+                author: '@Koba42Corp',
+                downloads: '1.4k',
+                stars: '1',
+                version: 'v1.0',
+                description: '浏览、搜索、分析和追踪 Wojak Farmers Plot NFT。查看地板价、稀有度、价格趋势、特征、挂单和交易机会。基于 Chia 区块链。',
+                tags: ['Chia', 'NFT', 'Analytics', 'Floor Price'],
+                agentInstall: '帮我安装 Wojak.ink NFT Browser 技能',
+                humanInstall: 'clawhub install Koba42Corp/wojak-ink'
+            },
+            'https://clawhub.com/kit-the-fox/agentsmint': {
+                name: 'Agentsmint',
+                author: '@kit-the-fox',
+                downloads: '1.2k',
+                stars: '1',
+                version: 'v3.0',
+                description: '在 Base 区块链上创建和管理 NFT 集合。Agent 可以铸造 NFT、发布集合、挂单出售或检查 NFT 投资组合。处理合约部署、懒铸造和版本追踪。平台支付部署 Gas。',
+                tags: ['Base', 'NFT', 'Minting', 'Collection'],
+                agentInstall: '帮我安装 Agentsmint 技能',
+                humanInstall: 'clawhub install kit-the-fox/agentsmint'
+            },
+            'https://clawhub.com/CLAWZAI/bnb-nft': {
+                name: 'BNB Chain NFT',
+                author: '@CLAWZAI',
+                downloads: '1.2k',
+                stars: '1',
+                version: 'v1.0',
+                description: 'BNB Chain 上的 NFT 操作 - 获取 NFT 元数据、检查所有权、按所有者列出 NFT、转移 ERC-721 代币、获取集合信息。用于 BSC 上的任何 NFT 相关任务。',
+                tags: ['BSC', 'NFT', 'ERC-721', 'BNB Chain'],
+                agentInstall: '帮我安装 BNB Chain NFT 技能',
+                humanInstall: 'clawhub install CLAWZAI/bnb-nft'
+            },
+            'https://clawhub.com/gizmo-dev/alchemy-web3': {
+                name: 'Alchemy Web3 API',
+                author: '@gizmo-dev',
+                downloads: '636',
+                stars: '0',
+                version: 'v4.0',
+                description: '使用 Alchemy 的 Web3 API 获取区块链数据、NFT、代币、转账和 Webhook，支持 80+ 条链，包括 BSC、Ethereum、opBNB、Optimism、Polygon、Arbitrum 等。',
+                tags: ['Alchemy', 'Multi-Chain', 'API', '80+ Chains'],
+                agentInstall: '帮我安装 Alchemy Web3 技能',
+                humanInstall: 'clawhub install gizmo-dev/alchemy-web3'
+            },
+            'https://clawhub.com/Seenfinity/solana-connect': {
+                name: 'Solana Connect',
+                author: '@Seenfinity',
+                downloads: '488',
+                stars: '0',
+                version: 'v12.0',
+                description: 'OpenClaw Solana Connect - AI Agent 与 Solana 区块链交互的安全工具包。具有私钥保护、最大限制、试运行模式和人工监督功能。',
+                tags: ['Solana', 'Security', 'Wallet', 'Agent'],
+                agentInstall: '帮我安装 Solana Connect 技能',
+                humanInstall: 'clawhub install Seenfinity/solana-connect'
+            },
+            'https://clawhub.com/AlphaFanX/tonfun': {
+                name: 'TON.fun Trading',
+                author: '@AlphaFanX',
+                downloads: '408',
+                stars: '0',
+                version: 'v1.0',
+                description: '在 TON.fun 上发布、浏览和交易代币。使用联合曲线实现公平、即时流动性，无需预售或中介。TON 区块链上的去中心化代币交易。',
+                tags: ['TON', 'Trading', 'Bonding Curve', 'DEX'],
+                agentInstall: '帮我安装 TON.fun Trading 技能',
+                humanInstall: 'clawhub install AlphaFanX/tonfun'
+            },
+            'https://clawhub.com/apexfork/eth-readonly': {
+                name: 'Ethereum Readonly',
+                author: '@apexfork',
+                downloads: '402',
+                stars: '0',
+                version: 'v1.0',
+                description: '只读以太坊区块链查询 - 区块、交易、余额、合约、日志。通过 RPC 和 Etherscan API 获取数据。安全的只读访问，无需私钥。',
+                tags: ['Ethereum', 'RPC', 'Etherscan', 'Readonly'],
+                agentInstall: '帮我安装 Ethereum Readonly 技能',
+                humanInstall: 'clawhub install apexfork/eth-readonly'
+            },
+            'https://clawhub.com/kvhnuke/chainai': {
+                name: 'ChainAI',
+                author: '@kvhnuke',
+                downloads: '151',
+                stars: '0',
+                version: 'v5.0',
+                description: 'Ethereum 和 EVM 区块链 CLI 技能 - 签名消息、发送代币、通过 1inch Fusion 交换、检查余额、广播交易、管理钱包。支持所有 EVM 兼容链。',
+                tags: ['EVM', 'CLI', '1inch', 'Wallet'],
+                agentInstall: '帮我安装 ChainAI 技能',
+                humanInstall: 'clawhub install kvhnuke/chainai'
+            },
+            'https://clawhub.com/ianalloway/nft-tracker': {
+                name: 'NFT Tracker',
+                author: '@ianalloway',
+                downloads: '407',
+                stars: '0',
+                version: 'v1.0',
+                description: '追踪以太坊 NFT 集合的地板价、交易量、持有者和最近销售，包括 BAYC、MAYC、CryptoPunks。通过 Reservoir 和 OpenSea API 获取数据。',
+                tags: ['Ethereum', 'NFT', 'Floor Price', 'OpenSea'],
+                agentInstall: '帮我安装 NFT Tracker 技能',
+                humanInstall: 'clawhub install ianalloway/nft-tracker'
+            },
+            'https://clawhub.com/clawdmintt/clawdmint': {
+                name: 'Clawdmint',
+                author: '@clawdmintt',
+                downloads: '969',
+                stars: '2',
+                version: 'v1.0',
+                description: '在 Base 上部署 NFT 集合。AI Agent 可以通过 API 密钥或 x402 USDC 支付部署。人类铸造。简单的 NFT 发布流程。',
+                tags: ['Base', 'NFT', 'x402', 'Deploy'],
+                agentInstall: '帮我安装 Clawdmint 技能',
+                humanInstall: 'clawhub install clawdmintt/clawdmint'
+            },
+            'https://clawhub.com/zivhm/zapper-api': {
+                name: 'Zapper API',
+                author: '@zivhm',
+                downloads: '1k',
+                stars: '0',
+                version: 'v1.0',
+                description: '通过 Zapper API 查询 DeFi 投资组合、代币持仓、NFT、交易和价格。支持 50+ 条链。当用户询问钱包余额、DeFi 仓位、NFT 集合、代币价格或交易历史时使用。',
+                tags: ['Zapper', 'DeFi', 'Portfolio', 'API'],
+                agentInstall: '帮我安装 Zapper API 技能',
+                humanInstall: 'clawhub install zivhm/zapper-api'
+            },
+            'https://clawhub.com/gizmo-dev/gizmolab-tools': {
+                name: 'GizmoLab Tools',
+                author: '@gizmo-dev',
+                downloads: '843',
+                stars: '1',
+                version: 'v1.0',
+                description: '使用 GizmoLab 的免费区块链开发者工具。以太坊工具包括合约 UI 交互、交易解码器、ENS 查询和燃烧钱包。Solana 工具包括代币创建、铸造、快照和交换。Web3 UI 组件库。',
+                tags: ['Ethereum', 'Solana', 'Tools', 'UI Components'],
+                agentInstall: '帮我安装 GizmoLab Tools 技能',
+                humanInstall: 'clawhub install gizmo-dev/gizmolab-tools'
+            },
+            'https://clawhub.com/bevanding/web3-investor': {
+                name: 'Web3 Investor',
+                author: '@bevanding',
+                downloads: '290',
+                stars: '1',
+                version: 'v14.0',
+                description: 'AI 友好的 Web3 投资基础设施。用于发现和分析 DeFi/NFT 投资机会、执行交易、管理投资组合。支持多链 DeFi 协议和 NFT 市场。',
+                tags: ['DeFi', 'NFT', 'Investment', 'Portfolio'],
+                agentInstall: '帮我安装 Web3 Investor 技能',
+                humanInstall: 'clawhub install bevanding/web3-investor'
+            },
+            'https://clawhub.com/planetai87/warren-deploy': {
+                name: 'Warren Deploy',
+                author: '@planetai87',
+                downloads: '1.6k',
+                stars: '0',
+                version: 'v3.0',
+                description: '在 MegaETH 区块链上永久部署网站和文件。AI Agent 通过 SSTORE2 字节码存储部署 HTML。Agent 支付自己的 Gas。压力测试网络的同时部署去中心化网站。',
+                tags: ['MegaETH', 'Deploy', 'SSTORE2', 'On-Chain'],
+                agentInstall: '帮我安装 Warren Deploy 技能',
+                humanInstall: 'clawhub install planetai87/warren-deploy'
+            },
+            'https://clawhub.com/efekucuk/etherlink': {
+                name: 'Etherlink Skill',
+                author: '@efekucuk',
+                downloads: '1.4k',
+                stars: '2',
+                version: 'v1.0',
+                description: 'Etherlink 区块链交互 - Tezos 上的 EVM 兼容 L2。支持主网和 shadownet 测试网。用于余额检查、交易、智能合约和 Etherlink 上的代币操作。',
+                tags: ['Etherlink', 'Tezos', 'L2', 'EVM'],
+                agentInstall: '帮我安装 Etherlink Skill 技能',
+                humanInstall: 'clawhub install efekucuk/etherlink'
+            },
+            'https://clawhub.com/ivangdavila/blockchain': {
+                name: 'Blockchain 基础',
+                author: '@ivangdavila',
+                downloads: '1.1k',
+                stars: '3',
+                version: 'v1.0',
+                description: '理解区块链技术、与智能合约交互、评估分布式账本何时解决实际问题。教育性技能，帮助理解区块链核心概念和应用场景。',
+                tags: ['Education', 'Blockchain', 'Smart Contract', 'Theory'],
+                agentInstall: '帮我安装 Blockchain 基础技能',
+                humanInstall: 'clawhub install ivangdavila/blockchain'
+            },
+            'https://clawhub.com/JamesLawton/sequence-cli': {
+                name: 'Sequence CLI',
+                author: '@JamesLawton',
+                downloads: '1k',
+                stars: '0',
+                version: 'v1.0',
+                description: '管理 Sequence 智能钱包、项目、API 密钥、ERC20 转账，并使用 Sequence Builder CLI 查询区块链数据。用于创建钱包、发送代币、检查余额、管理 Sequence 项目或与 EVM 区块链交互。',
+                tags: ['Sequence', 'Smart Wallet', 'EVM', 'CLI'],
+                agentInstall: '帮我安装 Sequence CLI 技能',
+                humanInstall: 'clawhub install JamesLawton/sequence-cli'
+            },
+            'https://clawhub.com/Potdealer/ok-computers': {
+                name: 'OK Computers',
+                author: '@Potdealer',
+                downloads: '1k',
+                stars: '0',
+                version: 'v5.0',
+                description: '与你在 Base 区块链上的 OK Computer NFT 交互，进行链上消息、发帖、DM、用户名和网站管理。通过签名交易实现去中心化社交。',
+                tags: ['Base', 'NFT', 'Social', 'Messaging'],
+                agentInstall: '帮我安装 OK Computers 技能',
+                humanInstall: 'clawhub install Potdealer/ok-computers'
+            },
+            'https://clawhub.com/josealoha666/openscan-crypto': {
+                name: 'OpenScan Crypto',
+                author: '@josealoha666',
+                downloads: '140',
+                stars: '0',
+                version: 'v1.0',
+                description: '通过 OpenScan 基础设施导航和查询加密网络。用于查询区块链数据 - 余额（ETH、ERC20、BTC）、区块、交易、合约。支持多链浏览器功能。',
+                tags: ['Multi-Chain', 'Explorer', 'Balance', 'Transaction'],
+                agentInstall: '帮我安装 OpenScan Crypto 技能',
+                humanInstall: 'clawhub install josealoha666/openscan-crypto'
+            }
+        };
+        
+        // Open modal
+        function openModal(url) {
+            const skill = skillsData[url];
+            if (!skill) return;
+            
+            document.getElementById('modalTitle').textContent = skill.name;
+            document.getElementById('modalAuthor').textContent = skill.author;
+            document.getElementById('modalDownloads').textContent = `📥 ${skill.downloads} 下载`;
+            document.getElementById('modalStars').textContent = `⭐ ${skill.stars} 收藏`;
+            document.getElementById('modalVersion').textContent = `📦 ${skill.version}`;
+            document.getElementById('modalSource').textContent = url;
+            document.getElementById('modalSource').href = url;
+            document.getElementById('modalDescription').textContent = skill.description;
+            document.getElementById('modalAgentInstall').textContent = skill.agentInstall;
+            document.getElementById('modalHumanInstall').textContent = skill.humanInstall;
+            document.getElementById('modalClawHubLink').href = url;
+            
+            const tagsContainer = document.getElementById('modalTags');
+            tagsContainer.innerHTML = '';
+            skill.tags.forEach(tag => {
+                const tagEl = document.createElement('span');
+                tagEl.className = 'tag-modern text-purple-300';
+                tagEl.textContent = tag;
+                tagsContainer.appendChild(tagEl);
+            });
+            
+            document.getElementById('skillModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('skillModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Copy code
+        function copyCode(btn) {
+            const code = btn.nextElementSibling.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = '已复制!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+        
+        // Close modal on background click
+        document.getElementById('skillModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Close modal on ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        
+        searchBtn.addEventListener('click', function() {
+            const query = searchInput.value.trim();
+            if (query) {
+                window.open(`https://clawhub.com/skills?q=${encodeURIComponent(query)}`, '_blank');
+            }
+        });
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Quick tag filters
+        document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                const query = this.textContent.trim();
+                window.open(`https://clawhub.com/skills?q=${encodeURIComponent(query)}`, '_blank');
+            });
+        });
+        
+        // Sort buttons
+        document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.sort-btn').forEach(b => {
+                    b.classList.remove('bg-purple-500/20', 'text-purple-300', 'active');
+                    b.classList.add('bg-white/5');
+                });
+                this.classList.remove('bg-white/5');
+                this.classList.add('bg-purple-500/20', 'text-purple-300', 'active');
+            });
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Skill card click - open modal
+        document.querySelectorAll('.skill-card-modern, .bento-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = this.getAttribute('data-url');
+                if (url && skillsData[url]) {
+                    openModal(url);
+                } else if (url) {
                     window.open(url, '_blank');
                 }
             });
